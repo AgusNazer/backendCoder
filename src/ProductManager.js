@@ -12,7 +12,7 @@ class ProductManager {
       const products = await fs.promises.readFile(this.#path,'utf-8');
       return JSON.parse(products);
     } catch (e) {
-      return [];
+      return 'error';
     }
   }
   async addProducts(title, description, price, thumbnail, code, stock) {
@@ -31,7 +31,7 @@ class ProductManager {
       fs.promises.writeFile(path, JSON.stringify([...prod, newProduct]));
       this.#accumulatorId += 1;
     } else {
-      throw new Error(`El código ${code} ya esta registrado.`);
+      throw new Error(` Código ${code} ya ingresado.`);
     }
   }
  async  getProductById(id) {
