@@ -8,6 +8,7 @@ class ProductManager {
   #accumulatorId = 0;
 
   async getProducts() {
+    console.log(this.#path)
     try {
       const products = await fs.promises.readFile(this.#path,'utf-8');
       return JSON.parse(products);
