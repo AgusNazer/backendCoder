@@ -1,9 +1,9 @@
 import express from "express";
-import ProductManager from "./ProductManager.js";
+import ProductManager from "./productManager/ProductManager.js";
 import productsRouter from "./routes/products.router.js";
 import cartRouter from "./routes/cart.router.js";
 import __dirname from "./util.js";
-import handlebars from 'express-handlebars';
+// import handlebars from 'express-handlebars';
 import {engine} from "express-handlebars"
 import { Server } from "socket.io";
 import viewsRouter from "./routes/views.router.js";
@@ -11,7 +11,7 @@ import viewsRouter from "./routes/views.router.js";
 
 
 
-const productManager = new ProductManager("./src/products.json");
+const productManager = new productManager("./src/products.json");
 const cartManager = new CartManager("./src/cartManager/cart.json");
 
 const app = express();
