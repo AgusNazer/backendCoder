@@ -11,7 +11,7 @@ import viewsRouter from "./routes/views.router.js";
 
 
 
-const productManager = new productManager("./src/products.json");
+const productManager = new ProductManager("./src/products.json");
 const cartManager = new CartManager("./src/cartManager/cart.json");
 
 const app = express();
@@ -42,7 +42,7 @@ app.use("/api/products", productsRouter)
 app.use("/api/cart", cartRouter)
 app.use("/", viewsRouter)
 
-export {productManager, cartManager}
+export default {productManager, cartManager}
 
 
 
