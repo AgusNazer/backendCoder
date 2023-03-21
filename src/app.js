@@ -1,5 +1,6 @@
 import express from "express";
 import ProductManager from "./productManager/ProductManager.js";
+import CartManager from "./cartManager/CartManager.js";
 import productsRouter from "./routes/products.router.js";
 import cartRouter from "./routes/cart.router.js";
 import __dirname from "./util.js";
@@ -8,14 +9,11 @@ import {engine} from "express-handlebars"
 import { Server } from "socket.io";
 import viewsRouter from "./routes/views.router.js";
 
-
-
-
-const productManager = new ProductManager("./src/products.json");
-const cartManager = new CartManager("./src/cartManager/cart.json");
+export const productManager = new ProductManager("./products.json");
+export const cartManager = new CartManager("./cartManager/carts.json");
 
 const app = express();
-app.use(json());
+app.use(express.json());
 
 app.use(express.static(__dirname + '/../public'));
 
@@ -41,8 +39,6 @@ app.use((req,res,next)=>{
 app.use("/api/products", productsRouter)
 app.use("/api/cart", cartRouter)
 app.use("/", viewsRouter)
-
-export default {productManager, cartManager}
 
 
 
