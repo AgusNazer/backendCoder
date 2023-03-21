@@ -1,16 +1,16 @@
 import { json, Router } from "express";
-import { ProductManager } from "../app.js";
+import { productManager } from "../app.js";
 
 const viewsRouter = Router()
 viewsRouter.use(json())
 
 viewsRouter.get("/", async (req,res)=>{
-    const products = await ProductManager.getProducts()
+    const products = await productManager.getProducts()
     res.render("home", {products})
 })
 
 viewsRouter.get("/realTimeProducts", async (req,res)=>{
-    const products = await ProductManager.getProducts()
+    const products = await productManager.getProducts()
     res.render("realTimeProducts", {products})            
 
 
