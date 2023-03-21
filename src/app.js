@@ -42,7 +42,7 @@ app.use("/api/products", productsRouter)
 app.use("/api/cart", cartRouter)
 app.use("/", viewsRouter)
 
-export default {productManager, cartManager}
+// export  {productManager, cartManager}
 
 
 
