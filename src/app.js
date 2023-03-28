@@ -31,6 +31,7 @@ io.on("connection", (socket)=>{
     console.log("New client connected.")
 })
 
+//middleware q recibe io desde router
 app.use((req,res,next)=>{
     req.io = io
     next()
