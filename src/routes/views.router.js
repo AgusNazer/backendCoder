@@ -1,4 +1,3 @@
-// import { json, Router } from "express"; codigo entrega4
 import express from "express";
 import { ProductManager } from "../dao/index.js";
 import ChatManager from "../dao/db-managers/chat.manager.js";
@@ -35,21 +34,6 @@ viewsRouter.get("/chat", async (req, res) => {
   }
 });
 
-//codigo entrega 4
-// const viewsRouter = Router()
-// viewsRouter.use(json())
 
-// viewsRouter.get("/", async (req,res)=>{
-//     const products = await productManager.getProducts()
-//     res.render("home", {products})
-// })
-
-// viewsRouter.get("/realTimeProducts", async (req,res)=>{
-//     const products = await productManager.getProducts()
-//     res.render("realTimeProducts", {products})            
-
-
-    
-// })
 
 export default viewsRouter

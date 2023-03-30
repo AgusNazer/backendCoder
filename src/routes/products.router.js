@@ -1,7 +1,8 @@
 import { Router, json } from "express";
-// import { productManager as manager } from "../app.js";
-import { ProductManager  as manager} from "../dao/index.js";
+import { ProductManager } from "../dao/index.js";
 
+// agregue const productManager
+const productManager = new ProductManager ('./products.json');
 const productsRouter = Router();
 productsRouter.use(json());
 
@@ -29,7 +30,7 @@ productsRouter.get("/:pid", async (req, res) => {
 
 productsRouter.post("/", async (req, res) => {
   const { title, description, price, thumbnail, code, stock } = req.body;
-  const newProd = await manager.addProducts({
+  const newProd = await productManager.addProducts({
     title,
     description,
     price,
