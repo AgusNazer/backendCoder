@@ -4,7 +4,7 @@ import {CartManager, ProductManager} from "../dao/index.js";
 
 const cartRouter = Router();
 let cartManager = new CartManager("../cartManager/carts.json");
-let productManager = new ProductManager("../productos.json");
+let productManager = new ProductManager("../files/products.json");
 cartRouter.use(json());
 
 cartRouter.get("/", async (req, res) => {

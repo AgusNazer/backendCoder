@@ -42,7 +42,7 @@ app.set("views", __dirname + "/views");
 app.set("view engine", "handlebars");
 app.use(express.static(__dirname + "/public"));
 
-//midle para recibir io desde el router
+//midleware para recibir io desde el router
 app.use((req, res, next) => {
   req.io = io;
   next();

@@ -92,12 +92,11 @@ class CartManager {
 
         for (let i = 0; i < carts.length; i++) {
           if (carts[i].idCart === idCart) {
-            //Encontre el carrito que me pasaron
-            //Ahora recorro los productos de ese carrito para ver si tiene agregado mi producto
+            // recorro carrito para encontrar el producto
             existCart = true;
             for (let j = 0; j < carts[i].products.length; j++) {
               if (carts[i].products[j].id === idProduct) {
-                //Encontre mi producto agregado, le sumo 1 a la cantidad
+                //sumo 1 al encontrado
                 existProduct = true;
                 carts[i].products[j].quantity =
                   carts[i].products[j].quantity + 1;
@@ -106,7 +105,7 @@ class CartManager {
             }
 
             if (!existProduct) {
-              //No encontre el producto en mi carrito, lo creo con cantidad 1
+              //si no se ecnuentra creo uno
               carts[i].products.push({ id: idProduct, quantity: 1 });
             }
 
