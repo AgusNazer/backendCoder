@@ -15,7 +15,7 @@ productsRouter.get("/", async (req, res) => {
       products.length = limit;
       return res.send(products);
     } else {
-      res.send(products);
+      res.send(products.json);
     }
   } catch (e) {
     res.status(404).send(`${e}`);

@@ -1,5 +1,4 @@
 import cartModel from "../models/cart.model.js";
-import ProductManager from "./product.manager.js";
 
 class CartManager {
   constructor() {}
@@ -36,6 +35,7 @@ class CartManager {
     }
   }
 
+  //retorna un objeto a mongoose
   async addProduct(idCart, idProduct) {
     try {
       const cart = await cartModel.findById(idCart);

@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2";
+
 
 const productSchema = new mongoose.Schema({
   title: { 
@@ -28,5 +30,13 @@ const productSchema = new mongoose.Schema({
      default: [] },
 });
 
+// productSchema.pre("findOne", function() {
+//   this.populate("carts.cart");
+//   // this es el findById del index.js
+// });
+
+productSchema.plugin(mongoosePaginate);
+
 const productModel = mongoose.model("products", productSchema);
+
 export default productModel;
