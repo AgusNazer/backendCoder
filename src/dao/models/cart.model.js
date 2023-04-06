@@ -24,7 +24,7 @@ const cartSchema = new mongoose.Schema({
 //4-4-23 paginate
 
 cartSchema.pre("findOne", function() {
-  this.populate("products.product");
+  this.populate.lean()("products.product");
  
 });
 
