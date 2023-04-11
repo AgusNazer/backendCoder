@@ -7,6 +7,9 @@ import productsRouter from "./routes/products.router.js";
 import cartRouter from "./routes/cart.router.js";
 import viewRouter from "./routes/views.router.js";
 import ChatManager from "./dao/db-managers/chat.manager.js";
+import usersRouter from "./routes/users.router.js";
+import session from "express-session";
+import MongoStore from "connect-mongo"
 
 // import productsModel from "./dao/models/product.model.js";
 // import cartModel from "./dao/models/cart.model.js";
@@ -33,32 +36,19 @@ mongoose
     console.log("Error");
   });
 
-  //desafio 4-4-23
-//   const products = await productsModel.aggregate([
-//     { $group: { _id: "$title", Precio: { $sum: "$price"} }  },
-//     { $sort: {Precio: -1} },
-//     { $group: { _id: 1, products: { $push: "$$ROOT"} } },
-//     {
-//         $project: {
-//             _id: 0,
-//             zapatillas: "$products",
-//         },
-//     },
-//     { $merge: { into: "reports" } },
-// ]);
-// console.log(products);
+// session, store, router
+  app.use(session({
+    store:MongoStore.create({
+      mongoUrl:"mongodb+srv://cobosleandra2:171294@cluster0.ydfb7m6.mongodb.net/?retryWrites=true&w=majority",
+     ttl:10000
+    }),
+    secret:"claveSecreta",
+    resave:true,
+    saveUninitialized:true
+  }))
 
+  app.use('/', usersRouter)
 
-// const cart = await cartModel.findById("6420aed66e7b33491341d6b6")
-// console.log(JSON.stringify(cart, null, "\t"));
-
-
-
-
-// main();
-
-
-  
 const httpServer = app.listen(8080, () => {
   console.log("Server listening on port 8080");
 });

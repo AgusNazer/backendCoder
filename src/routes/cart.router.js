@@ -24,7 +24,8 @@ cartRouter.post("/:cartId/product/:pid", async (req, res) => {
 });
 
 cartRouter.post("/", async (req, res) => {
-  let carrito = await cartManager.addCart();
+  // siguiente linea hay q pasarle algo al .addCart
+  let carrito = await cartManager.addCart(product);
   res.send(carrito);
 });
 

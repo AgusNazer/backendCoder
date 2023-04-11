@@ -5,7 +5,10 @@ class ProductManager {
 
   async addProduct(product) {
     try {
-      const result = await productModel.create(product);
+      console.log('PRODUCT', product);
+      
+      const result = await productModel.create({...product});
+      console.log('result', result);
       return { stat: 200, result: result };
     } catch (error) {
       return { stat: 400, result: "Error" };
